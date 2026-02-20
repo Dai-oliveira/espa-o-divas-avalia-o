@@ -1,68 +1,73 @@
-# App de AvaliaÁ„o
+Ôªø# App de Avalia√ß√£o
 
-AplicaÁ„o web est·tica para coleta de avaliaÁıes de atendimento de sal„o, com envio da avaliaÁ„o para WhatsApp, armazenamento local e painel simples de mÈtricas.
+Aplica√ß√£o web est√°tica para coleta de avalia√ß√µes de atendimento de sal√£o, com envio da avalia√ß√£o para WhatsApp, armazenamento local e painel simples de m√©tricas.
 
-## Vis„o geral
+## Vis√£o geral
 
-O projeto permite que clientes preencham um formul·rio de feedback com:
+O projeto permite que clientes preencham um formul√°rio de feedback com:
 
 - Nome
-- Categoria e subserviÁo
+- Categoria e subservi√ßo
 - Humor no atendimento (emoji)
-- NÌvel de satisfaÁ„o (1 a 5)
-- IndicaÁ„o (sim/talvez/n„o)
-- Coment·rio opcional
-- AutorizaÁ„o de uso do feedback nas redes sociais
+- N√≠vel de satisfa√ß√£o (1 a 5)
+- Indica√ß√£o (sim/talvez/n√£o)
+- Coment√°rio opcional
+- Autoriza√ß√£o de uso do feedback nas redes sociais
 
-ApÛs envio:
+Ap√≥s envio:
 
-- A avaliaÁ„o È salva no `localStorage`
-- A janela do WhatsApp È aberta com a mensagem formatada
-- O painel lateral atualiza mÈtricas (total, mÈdia e taxa de indicaÁ„o)
+- A avalia√ß√£o √© salva no `localStorage`
+- A janela do WhatsApp √© aberta com a mensagem formatada
+- O painel lateral atualiza m√©tricas (total, m√©dia e taxa de indica√ß√£o)
 
 ## Funcionalidades
 
-- Formul·rio com validaÁ„o de campos obrigatÛrios
-- Seletor din‚mico de subserviÁos por categoria
-- Contador de caracteres no coment·rio
-- Cartinhas motivacionais com mensagem aleatÛria sem repetiÁ„o imediata
+- Formul√°rio com valida√ß√£o de campos obrigat√≥rios
+- Seletor din√¢mico de subservi√ßos por categoria
+- Contador de caracteres no coment√°rio
+- Cartinhas motivacionais com mensagem aleat√≥ria sem repeti√ß√£o imediata
 - Feedback visual com toast e card de agradecimento
-- Dashboard com mÈtricas calculadas em tempo real
+- Dashboard com m√©tricas calculadas em tempo real
 - Bloco de contatos, Instagram e mapa incorporado
 - Layout responsivo para desktop e mobile
 
 ## Estrutura do projeto
 
-- `index.html`: estrutura da p·gina
+- `index.html`: estrutura da p√°gina
 - `style.css`: estilos e responsividade
-- `script.js`: regras de interaÁ„o, validaÁ„o, mÈtricas e integraÁ„o com WhatsApp
-- `logosal„o.png`: logo exibida no banner
+- `script.js`: regras de intera√ß√£o, valida√ß√£o, m√©tricas e integra√ß√£o com WhatsApp
+- `logosal√£o.png`: logo exibida no banner
 
 ## Como executar
 
-Por ser um projeto est·tico, n„o exige instalaÁ„o de dependÍncias.
+Por ser um projeto est√°tico, n√£o exige instala√ß√£o de depend√™ncias.
 
 1. Abra o arquivo `index.html` no navegador.
-2. Ou rode com um servidor local simples (opcional), por exemplo com a extens„o Live Server no VS Code.
+2. Ou rode com um servidor local simples (opcional), por exemplo com a extens√£o Live Server no VS Code.
 
-## PersistÍncia de dados
+## Recomenda√ß√£o de encoding (GitHub Pages)
 
-As avaliaÁıes ficam armazenadas no navegador usando a chave:
+Para evitar caracteres quebrados (`?`) no GitHub Pages, mantenha os arquivos salvos em UTF-8.
+Este projeto j√° inclui `.editorconfig` e `.vscode/settings.json` para for√ßar UTF-8 no workspace.
+## Persist√™ncia de dados
+
+As avalia√ß√µes ficam armazenadas no navegador usando a chave:
 
 - `avaliacoes_clientes`
 
 Para limpar os dados, apague essa chave no `localStorage` (DevTools do navegador).
 
-## IntegraÁ„o com WhatsApp
+## Integra√ß√£o com WhatsApp
 
-O envio usa a URL `https://wa.me/` e o n˙mero configurado em `script.js`:
+O envio usa a URL `https://wa.me/` e o n√∫mero configurado em `script.js`:
 
 - `OWNER_WHATSAPP_NUMBER = "55996052565"`
 
-Se quiser trocar o n˙mero de destino, altere essa constante.
+Se quiser trocar o n√∫mero de destino, altere essa constante.
 
-## ObservaÁıes
+## Observa√ß√µes
 
 - O app depende de JavaScript habilitado.
-- O `localStorage` È por navegador/dispositivo, ent„o os dados n„o s„o compartilhados entre aparelhos.
-- O envio para WhatsApp abre uma nova aba/janela no momento do envio do formul·rio.
+- O `localStorage` √© por navegador/dispositivo, ent√£o os dados n√£o s√£o compartilhados entre aparelhos.
+- O envio para WhatsApp abre uma nova aba/janela no momento do envio do formul√°rio.
+

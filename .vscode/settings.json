@@ -1,0 +1,7 @@
+﻿{
+    "files.insertFinalNewline":  true,
+    "files.encoding":  "utf8",
+    "editorconfig.enable":  true,
+    "files.autoGuessEncoding":  false,
+    "files.trimTrailingWhitespace":  true
+}

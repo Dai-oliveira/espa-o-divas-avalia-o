@@ -113,13 +113,7 @@ function getNextMotivationMessage() {
   return remainingMotivationMessages.pop();
 }
 
-function loadFeedbacks() {
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-  } catch {
-    return [];
-  }
-}
+function loadFeedbacks() {`n  try {`n    const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY));`n    return Array.isArray(parsed) ? parsed : [];`n  } catch {`n    return [];`n  }`n}
 
 function saveFeedbacks(items) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
@@ -282,15 +276,15 @@ form.addEventListener("submit", (event) => {
   }
 
   const formData = new FormData(form);
-  const categoria = formData.get("categoriaServico").toString();
-  const sub = formData.get("subservico").toString();
+  const categoria = (formData.get("categoriaServico") || "").toString();
+  const sub = (formData.get("subservico") || "").toString();
 
   const newItem = {
-    nome: formData.get("nome").toString().trim(),
+    nome: (formData.get("nome") || "").toString().trim(),
     servico: `${categoria} - ${sub}`,
-    humor: formData.get("humor").toString(),
+    humor: (formData.get("humor") || "").toString(),
     satisfacao: Number(formData.get("satisfacao")),
-    indicaria: formData.get("indicaria").toString(),
+    indicaria: (formData.get("indicaria") || "").toString(),
     autorizaUso: formData.get("autorizaUso") === "Sim",
     comentario: (formData.get("comentario") || "").toString().trim(),
     criadoEm: new Date().toISOString()
@@ -320,3 +314,4 @@ form.addEventListener("submit", (event) => {
 
 setupServiceSelectors();
 renderFeedbacks();
+
