@@ -10,15 +10,11 @@ const satisfactionText = document.getElementById("satisfactionText");
 const comentario = document.getElementById("comentario");
 const charCount = document.getElementById("charCount");
 const autorizaUso = document.getElementById("autorizaUso");
-const feedbackList = document.getElementById("feedbackList");
 const toast = document.getElementById("toast");
 const thankYouCard = document.getElementById("thankYouCard");
 const metricTotal = document.getElementById("metricTotal");
 const metricAverage = document.getElementById("metricAverage");
 const metricRecommend = document.getElementById("metricRecommend");
-const filterName = document.getElementById("filterName");
-const filterCategory = document.getElementById("filterCategory");
-const filterRating = document.getElementById("filterRating");
 
 const STORAGE_KEY = "avaliacoes_clientes";
 const OWNER_WHATSAPP_NUMBER = "55996052565";
@@ -106,15 +102,6 @@ function setupServiceSelectors() {
   });
 }
 
-function setupFilterCategorySelector() {
-  Object.keys(serviceCatalog).forEach((category) => {
-    filterCategory.insertAdjacentHTML(
-      "beforeend",
-      `<option value="${category}">${category}</option>`
-    );
-  });
-}
-
 function resetSubservicoOptions(placeholder) {
   subservico.innerHTML = `<option value="" selected disabled>${placeholder}</option>`;
 }
@@ -152,27 +139,6 @@ function formatServiceLabel(serviceValue) {
   return `${category} - ${subservice}`;
 }
 
-function getServiceCategory(serviceValue) {
-  if (!serviceValue || !serviceValue.includes(" - ")) {
-    return serviceValue || "";
-  }
-
-  return serviceValue.split(" - ")[0]?.trim() || "";
-}
-
-function getFilteredItems(items) {
-  const nameQuery = filterName.value.trim().toLowerCase();
-  const categoryQuery = filterCategory.value;
-  const ratingQuery = filterRating.value;
-
-  return items.filter((item) => {
-    const nameOk = !nameQuery || item.nome?.toLowerCase().includes(nameQuery);
-    const categoryOk = !categoryQuery || getServiceCategory(item.servico) === categoryQuery;
-    const ratingOk = !ratingQuery || String(item.satisfacao) === ratingQuery;
-    return nameOk && categoryOk && ratingOk;
-  });
-}
-
 function updateMetrics(items) {
   const total = items.length;
   const average = total
@@ -190,8 +156,6 @@ function updateMetrics(items) {
 function renderFeedbacks() {
   const allItems = loadFeedbacks();
   updateMetrics(allItems);
-  feedbackList.innerHTML =
-    '<p class="empty">As avaliações são privadas e não ficam visíveis nesta tela.</p>';
 }
 
 moodButtons.forEach((button) => {
@@ -222,11 +186,6 @@ comentario.addEventListener("input", () => {
 
 categoriaServico.addEventListener("change", () => {
   fillSubservicos(categoriaServico.value);
-});
-
-[filterName, filterCategory, filterRating].forEach((element) => {
-  element.addEventListener("input", renderFeedbacks);
-  element.addEventListener("change", renderFeedbacks);
 });
 
 form.addEventListener("submit", (event) => {
@@ -281,5 +240,4 @@ form.addEventListener("submit", (event) => {
 });
 
 setupServiceSelectors();
-setupFilterCategorySelector();
 renderFeedbacks();

@@ -333,61 +333,6 @@ small {
   color: #111111;
 }
 
-.filters-section {
-  margin-top: 10px;
-  display: grid;
-  gap: 8px;
-}
-
-.filters-section input,
-.filters-section select {
-  width: 100%;
-}
-
-.feedback-list {
-  display: grid;
-  gap: 12px;
-  margin-top: 10px;
-  max-height: 300px;
-  overflow-y: auto;
-  padding-right: 6px;
-}
-
-.feedback-item {
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 12px;
-  background: #fffefb;
-}
-
-.feedback-item h3 {
-  margin: 0 0 4px;
-  font-size: 1rem;
-}
-
-.feedback-item p {
-  margin: 4px 0;
-  color: #303030;
-}
-
-.badge {
-  display: inline-block;
-  font-size: 0.78rem;
-  font-weight: 800;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: #ffe8f2;
-  color: #be185d;
-}
-
-.empty {
-  color: var(--muted);
-  background: #fff8fc;
-  border: 1px dashed var(--border);
-  border-radius: 12px;
-  padding: 14px;
-}
-
 .contacts-section {
   margin-top: 16px;
   border-top: 1px solid var(--border);
@@ -509,6 +454,62 @@ small {
 
   .dashboard-section {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .card {
+    border-radius: 16px;
+  }
+
+  .form-card,
+  .side-card {
+    padding: 14px;
+  }
+
+  .brand-logo {
+    width: clamp(120px, 46vw, 170px);
+  }
+
+  h1 {
+    font-size: 1.45rem;
+  }
+
+  .subtitle {
+    margin-bottom: 14px;
+  }
+
+  .field {
+    margin-bottom: 12px;
+  }
+
+  .mood-row,
+  .satisfaction {
+    gap: 8px;
+  }
+
+  .mood-btn,
+  .rate-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .check-row {
+    align-items: flex-start;
+    line-height: 1.35;
+  }
+
+  .btn-primary,
+  .btn-instagram {
+    padding: 12px;
+  }
+
+  .contact-item {
+    padding: 10px;
   }
 }
 
