@@ -1,9 +1,9 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AvaliaÃ§Ã£o de Atendimento</title>
+  <title>Avaliação de Atendimento</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,11 +13,11 @@
   <main class="container">
     <section class="card form-card">
       <div class="brand-banner">
-        <img class="brand-logo" src="logosalÃ£o.png" alt="Logo do EspaÃ§o Divas" />
+        <img class="brand-logo" src="logosalão.png" alt="Logo do Espaço Divas" />
         <p class="brand-line">Beleza, cuidado e autoestima em cada atendimento.</p>
       </div>
-      <p class="eyebrow">Seu espaÃ§o de opiniÃ£o</p>
-      <h1>Como foi sua experiÃªncia comigo?</h1>
+      <p class="eyebrow">Seu espaço de opinião</p>
+      <h1>Como foi sua experiência comigo?</h1>
       <p class="subtitle">Preencha rapidinho. Seu feedback me ajuda a melhorar cada atendimento.</p>
 
       <form id="feedbackForm" novalidate>
@@ -27,33 +27,33 @@
         </div>
 
         <div class="field">
-          <label for="categoriaServico">Categoria do serviÃ§o</label>
+          <label for="categoriaServico">Categoria do serviço</label>
           <select id="categoriaServico" name="categoriaServico" required>
             <option value="" selected disabled>Selecione uma categoria</option>
           </select>
         </div>
 
         <div class="field">
-          <label for="subservico">SubserviÃ§o realizado</label>
+          <label for="subservico">Subserviço realizado</label>
           <select id="subservico" name="subservico" required disabled>
             <option value="" selected disabled>Primeiro escolha a categoria</option>
           </select>
         </div>
 
         <fieldset class="field">
-          <legend>Como vocÃª se sentiu no atendimento?</legend>
+          <legend>Como você se sentiu no atendimento?</legend>
           <div class="mood-row" id="moodGroup">
-            <button type="button" class="mood-btn" data-value="Encantada">ğŸ˜</button>
-            <button type="button" class="mood-btn" data-value="Feliz">ğŸ˜Š</button>
-            <button type="button" class="mood-btn" data-value="Neutra">ğŸ˜</button>
-            <button type="button" class="mood-btn" data-value="Triste">ğŸ˜•</button>
+            <button type="button" class="mood-btn" data-value="Encantada">??</button>
+            <button type="button" class="mood-btn" data-value="Feliz">??</button>
+            <button type="button" class="mood-btn" data-value="Neutra">??</button>
+            <button type="button" class="mood-btn" data-value="Triste">??</button>
           </div>
           <input type="hidden" id="humor" name="humor" required />
           <small id="moodText">Escolha um emoji</small>
         </fieldset>
 
         <fieldset class="field">
-          <legend>NÃ­vel de satisfaÃ§Ã£o</legend>
+          <legend>Nível de satisfação</legend>
           <div class="satisfaction" id="satisfactionGroup">
             <button type="button" class="rate-btn" data-value="1">1</button>
             <button type="button" class="rate-btn" data-value="2">2</button>
@@ -66,17 +66,17 @@
         </fieldset>
 
         <fieldset class="field">
-          <legend>VocÃª indicaria meu trabalho?</legend>
+          <legend>Você indicaria meu trabalho?</legend>
           <div class="options-row">
             <label class="chip"><input type="radio" name="indicaria" value="Sim" required /><span>Sim</span></label>
             <label class="chip"><input type="radio" name="indicaria" value="Talvez" required /><span>Talvez</span></label>
-            <label class="chip"><input type="radio" name="indicaria" value="NÃ£o" required /><span>NÃ£o</span></label>
+            <label class="chip"><input type="radio" name="indicaria" value="Não" required /><span>Não</span></label>
           </div>
         </fieldset>
 
         <div class="field">
-          <label for="comentario">Feedback, sugestÃµes ou reclamaÃ§Ãµes</label>
-          <textarea id="comentario" name="comentario" rows="4" maxlength="300" placeholder="Conte com liberdade o que vocÃª achou..."></textarea>
+          <label for="comentario">Feedback, sugestões ou reclamações</label>
+          <textarea id="comentario" name="comentario" rows="4" maxlength="300" placeholder="Conte com liberdade o que você achou..."></textarea>
           <small><span id="charCount">0</span>/300 caracteres</small>
         </div>
 
@@ -87,14 +87,14 @@
           </label>
         </div>
 
-        <button type="submit" class="btn-primary">Enviar avaliaÃ§Ã£o</button>
+        <button type="submit" class="btn-primary">Enviar avaliação</button>
         <div id="thankYouCard" class="thank-you-card" aria-live="polite"></div>
       </form>
     </section>
 
     <aside class="card side-card">
-      <h2>Ãšltimas avaliaÃ§Ãµes</h2>
-      <p class="subtitle">Os detalhes das avaliaÃ§Ãµes ficam privados.</p>
+      <h2>Últimas avaliações</h2>
+      <p class="subtitle">Os detalhes das avaliações ficam privados.</p>
 
       <section class="dashboard-section">
         <div class="metric-card">
@@ -102,11 +102,11 @@
           <strong id="metricTotal">0</strong>
         </div>
         <div class="metric-card">
-          <p>MÃ©dia</p>
+          <p>Média</p>
           <strong id="metricAverage">0,0</strong>
         </div>
         <div class="metric-card">
-          <p>IndicaÃ§Ã£o</p>
+          <p>Indicação</p>
           <strong id="metricRecommend">0%</strong>
         </div>
       </section>
@@ -152,13 +152,13 @@
           </a>
         </div>
 
-        <a class="btn-instagram" href="https://www.instagram.com/espacodivaasm?igsh=aTRod3dxZWc2aW53" target="_blank" rel="noopener noreferrer">
+        <a class="btn-instagram" href="https://www.instagram.com/espacodivaasm?igsh=ZW9jM2lmaTdtZGxv" target="_blank" rel="noopener noreferrer">
           <span class="icon icon-instagram" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
               <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5A3.95 3.95 0 0 0 7.75 20.2h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/>
             </svg>
           </span>
-          Instagram do salÃ£o
+          Instagram do salão
         </a>
       </section>
 
@@ -169,7 +169,7 @@
               <path d="M12 2a7 7 0 0 0-7 7c0 4.86 5.23 11.48 6.07 12.51a1.2 1.2 0 0 0 1.86 0C13.77 20.48 19 13.86 19 9a7 7 0 0 0-7-7Zm0 9.3A2.3 2.3 0 1 1 12 6.7a2.3 2.3 0 0 1 0 4.6Z"/>
             </svg>
           </span>
-          EndereÃ§o do salÃ£o
+          Endereço do salão
         </h2>
         <p class="subtitle">
           Rua Conde Porto Alegre, 310 - CEP 97010-100, Santa Maria
@@ -180,11 +180,11 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          Ver localizaÃ§Ã£o no mapa
+          Ver localização no mapa
         </a>
         <div class="map-embed">
           <iframe
-            title="Mapa do EspaÃ§o Divas"
+            title="Mapa do Espaço Divas"
             src="https://www.google.com/maps?q=Rua+Conde+Porto+Alegre+310+Santa+Maria+97010-100&output=embed"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -199,3 +199,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
