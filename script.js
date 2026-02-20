@@ -15,6 +15,8 @@ const thankYouCard = document.getElementById("thankYouCard");
 const metricTotal = document.getElementById("metricTotal");
 const metricAverage = document.getElementById("metricAverage");
 const metricRecommend = document.getElementById("metricRecommend");
+const motivationCards = [...document.querySelectorAll(".motivation-card-btn")];
+const motivationText = document.getElementById("motivationText");
 
 const STORAGE_KEY = "avaliacoes_clientes";
 const OWNER_WHATSAPP_NUMBER = "55996052565";
@@ -44,6 +46,72 @@ const serviceCatalog = {
   "Terapias alternativas": ["Reiki", "Barras de Access", "Auriculoterapia", "Cone hindu"],
   Outro: ["Outro"]
 };
+
+const motivationMessages = [
+  "Seu brilho natural inspira quem está ao seu redor.",
+  "Hoje é um ótimo dia para se tratar com carinho.",
+  "Você merece se sentir linda, leve e confiante.",
+  "Cada cuidado com você mesma é um ato de amor.",
+  "Sua presença já transforma qualquer ambiente.",
+  "Respira fundo: coisas boas também estão vindo para você."
+];
+let remainingMotivationMessages = [];
+
+let audioContext;
+
+function playSoftTone() {
+  try {
+    if (!audioContext) {
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    const osc1 = audioContext.createOscillator();
+    const osc2 = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    const filter = audioContext.createBiquadFilter();
+
+    osc1.type = "sine";
+    osc2.type = "sine";
+    osc1.frequency.value = 136.1; // OM base
+    osc2.frequency.value = 272.2; // First harmonic
+
+    filter.type = "lowpass";
+    filter.frequency.value = 520;
+
+    gain.gain.value = 0.0001;
+
+    osc1.connect(gain);
+    osc2.connect(gain);
+    gain.connect(filter);
+    filter.connect(audioContext.destination);
+
+    const now = audioContext.currentTime;
+    gain.gain.exponentialRampToValueAtTime(0.028, now + 0.12);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.15);
+
+    osc1.start(now);
+    osc2.start(now);
+    osc1.stop(now + 1.2);
+    osc2.stop(now + 1.2);
+  } catch {
+    // If audio is blocked or unsupported, keep interaction silent.
+  }
+}
+
+function getNextMotivationMessage() {
+  if (!remainingMotivationMessages.length) {
+    remainingMotivationMessages = [...motivationMessages];
+    for (let i = remainingMotivationMessages.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [remainingMotivationMessages[i], remainingMotivationMessages[j]] = [
+        remainingMotivationMessages[j],
+        remainingMotivationMessages[i]
+      ];
+    }
+  }
+
+  return remainingMotivationMessages.pop();
+}
 
 function loadFeedbacks() {
   try {
@@ -186,6 +254,17 @@ comentario.addEventListener("input", () => {
 
 categoriaServico.addEventListener("change", () => {
   fillSubservicos(categoriaServico.value);
+});
+
+motivationCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    motivationCards.forEach((btn) => btn.classList.remove("active"));
+    card.classList.add("active");
+
+    motivationText.textContent = `“${getNextMotivationMessage()}”`;
+    motivationText.classList.add("revealed");
+    playSoftTone();
+  });
 });
 
 form.addEventListener("submit", (event) => {
